@@ -1,0 +1,10 @@
+[package]
+name = "season_separator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+regex = "1"
+walkdir = "2"
+anyhow = "1"
