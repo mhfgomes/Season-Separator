@@ -46,10 +46,7 @@ fn main() -> Result<()> {
             continue;
         }
 
-        let file_name = path
-            .file_name()
-            .and_then(|s| s.to_str())
-            .unwrap_or("");
+        let file_name = path.file_name().and_then(|s| s.to_str()).unwrap_or("");
 
         match parse_show_and_season(file_name, &patterns) {
             Some(parsed) => {
@@ -121,9 +118,7 @@ fn build_patterns() -> Result<Vec<Regex>> {
 }
 
 fn parse_show_and_season(file_name: &str, patterns: &[Regex]) -> Option<Parsed> {
-    let stem = Path::new(file_name)
-        .file_stem()
-        .and_then(|s| s.to_str())?;
+    let stem = Path::new(file_name).file_stem().and_then(|s| s.to_str())?;
 
     for pattern in patterns {
         if let Some(caps) = pattern.captures(stem) {
@@ -141,10 +136,7 @@ fn parse_show_and_season(file_name: &str, patterns: &[Regex]) -> Option<Parsed> 
 }
 
 fn clean_show_name(raw: &str) -> String {
-    let replaced = raw
-        .replace('.', " ")
-        .replace('_', " ")
-        .replace('-', " ");
+    let replaced = raw.replace(['.', '_', '-'], " ");
     replaced
         .split_whitespace()
         .filter(|s| !s.is_empty())
