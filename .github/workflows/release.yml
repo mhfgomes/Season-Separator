@@ -25,10 +25,6 @@ jobs:
             target: aarch64-apple-darwin
             binary_name: season_separator
             asset_name: season_separator-${{ github.ref_name }}-aarch64-apple-darwin.tar.gz
-          - os: macos-13
-            target: x86_64-apple-darwin
-            binary_name: season_separator
-            asset_name: season_separator-${{ github.ref_name }}-x86_64-apple-darwin.tar.gz
           - os: windows-latest
             target: x86_64-pc-windows-msvc
             binary_name: season_separator.exe
